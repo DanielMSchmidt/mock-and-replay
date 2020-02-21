@@ -4,7 +4,7 @@ ENV port=80
 
 
 ADD . . 
-RUN "npm install"
+RUN npm install
 
 
 ENTRYPOINT ["node" "./index.js"]
