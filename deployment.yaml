@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: mock-and-replay
+  name: mock-and-replay
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mock-and-replay
+  template:
+    metadata:
+      labels:
+        app: mock-and-replay
+    spec:
+      containers:
+        - image: danielmschmidt/mock-and-replay:latest
+          name: main
+          resources:
+            limits:
+              cpu: 400m
+              memory: 500Mi
+            requests:
+              cpu: 100m
+              memory: 20Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mock-and-replay
+  name: mock-and-replay
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: http
+  selector:
+    app: mock-and-replay
+  type: ClusterIP
