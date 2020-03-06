@@ -1,4 +1,4 @@
-FROM node:13.8.0-alpine3.10
+FROM node:13.10.1-alpine3.10
 EXPOSE 80
 ENV port=80
 
