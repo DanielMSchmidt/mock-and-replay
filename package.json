@@ -7,6 +7,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "yakbak": "^4.0.0"
+    "yakbak": "^5.0.0"
   }
 }
